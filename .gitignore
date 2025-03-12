@@ -1,0 +1,50 @@
+# Archivos generados automáticamente por Unity que no deben subirse
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Mm]emoryCaptures/
+
+# Configuraciones de usuario
+UserSettings/
+
+# Archivos de Unity Collab
+*.collab*
+
+# Archivos de paquetes y dependencias
+Packages/manifest.json
+Packages/packages-lock.json
+
+# Configuraciones de Visual Studio
+.vscode/
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+
+# Archivos de la cache de Unity
+*.pidb.meta
+*.pdb.meta
+*.mdb.meta
+*.ilk
+*.ipch
+*.obj
+*.pch
+*.hmap
+
+# Configuraciones de build
+*.apk
+*.aab
+*.unitypackage
+
+# Archivos específicos del sistema operativo
+.DS_Store
+Thumbs.db
