@@ -18,10 +18,13 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Destroy(gameObject);
+
         if ((hitLayers.value & (1 << other.gameObject.layer)) > 0)
         {
             Debug.Log("Impacto en {other.gameObject.name} en la posición {other.transform.position} con el proyectil {gameObject.name}!");
-            Destroy(gameObject);
+
         }
+
     }
 }
