@@ -20,8 +20,10 @@ public class PlayerController : MonoBehaviour
     private Vector3 velocity;
     private bool isGrounded;
 
+    [Header("Animations")]
+    [SerializeField] private Animator animator;
+
     [Header("Ataque")]
-    public Animator animator;
     public Transform attackPoint;
     public float attackRange = 0.5f;
     public LayerMask enemyLayers;
@@ -84,7 +86,10 @@ public class PlayerController : MonoBehaviour
 
     // Dirección de movimiento basada en la cámara
         Vector3 moveDirection = (playerCamera.forward * moveZ + playerCamera.right * moveX).normalized;
-        moveDirection.y = 0; // Evita inclinaciones no deseadas
+        moveDirection.y = 0; // evitar inclinaciones
+
+        if(moveX != 0 || moveZ != 0) animator?.SetFloat("Speed", 1); // Animacion movimiento
+        else animator?.SetFloat("Speed", 0);
 
         controller.Move(moveDirection * speed * Time.deltaTime);
 
