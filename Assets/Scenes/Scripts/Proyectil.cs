@@ -20,7 +20,7 @@ public class Projectile : MonoBehaviour
     {
         if ((hitLayers.value & (1 << other.gameObject.layer)) > 0)
         {
-            Debug.Log("Impacto con: " + other.gameObject.name);
+            Debug.Log("Impacto en {other.gameObject.name} en la posición {other.transform.position} con el proyectil {gameObject.name}!");
             Destroy(gameObject);
         }
     }

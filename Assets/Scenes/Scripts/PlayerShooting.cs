@@ -14,6 +14,11 @@ public class PlayerShooting : MonoBehaviour
     void Update()
     {
         Aiming();
+        if (isAiming)
+        {
+            RotateShootPoint();
+        }
+
         if (isAiming && Input.GetMouseButtonDown(0)) 
         {
             Shoot();
@@ -25,7 +30,6 @@ public class PlayerShooting : MonoBehaviour
         if (Input.GetMouseButton(1)) 
         {
             isAiming = true;
-                //animacion de apuntado de ser necesario
         }
         else 
         {
@@ -33,14 +37,23 @@ public class PlayerShooting : MonoBehaviour
         }
     }
 
+    void RotateShootPoint()
+    {
+        if (playerCamera != null && shootPoint != null)
+        {
+            shootPoint.rotation = Quaternion.LookRotation(playerCamera.transform.forward);
+        }
+    }
+
     void Shoot()
     {
-        GameObject newProjectile = Instantiate(projectilePrefab, shootPoint.position, Quaternion.identity);
+        GameObject newProjectile = Instantiate(projectilePrefab, shootPoint.position, shootPoint.rotation);
         Rigidbody rb = newProjectile.GetComponent<Rigidbody>();
 
         if (rb != null)
         {
-            rb.AddForce(playerCamera.transform.forward * shootForce);
+            rb.AddForce(shootPoint.forward * shootForce);
         }
     }
 }
+
